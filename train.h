@@ -17,11 +17,11 @@ public:
 	string getArrival()  {return arrival;}
 	string getDeparture() {return departure;}
 	string getCard();                           //Zwraca wizytowke stacji - jej skrocone dane.
-    string getArrivalCard();                    //Pomija godzine przyjazdu do stacji (dla stacji poczatkowych).
-    string getDepartureCard();                  //Pomija godzine odjazdu ze stacji (dla stacji koncowych).
+    	string getArrivalCard();                    //Pomija godzine przyjazdu do stacji (dla stacji poczatkowych).
+    	string getDepartureCard();                  //Pomija godzine odjazdu ze stacji (dla stacji koncowych).
 	string getAllData();                        //Zwraca pelne dane stacji (tzn. wraz z jej identyfikatorem).
-    string getArrivalAllData();                 //Dodatkowo zwraca identyfikator stacji (dla stacji poczatkowych).
-    string getDepartureAllData();               //Dodatkowo zwraca identyfikator stacji (dla stacji koncowych).
+    	string getArrivalAllData();                 //Dodatkowo zwraca identyfikator stacji (dla stacji poczatkowych).
+    	string getDepartureAllData();               //Dodatkowo zwraca identyfikator stacji (dla stacji koncowych).
 	void setId(string idNumber) {id = idNumber;}
 	void setName(string nameStation) {name = nameStation;}
 	void setArrival(string arriv) {arrival = arriv;}
