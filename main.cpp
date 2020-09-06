@@ -1,5 +1,5 @@
-//TRAINS v. 1.2
-//=============
+//TRAINS v. 1.2 (date: 06.09.2020).
+//================================
 #include"train.h"
 #include<iostream>
 #include<windows.h>	//system("CLS")
@@ -52,32 +52,32 @@ int main(){
 					getline(cin, finalStn);
 					vector<Train> trainsFound;
 					if((startingStn.size() == 0) && (finalStn.size() == 0)){
-            backToMainMenu = true;
-            continue;
+                        backToMainMenu = true;
+                        continue;
 					}
 					else if((startingStn.size() != 0) && (finalStn.size() != 0)){
 						trainsFound = trainsCatalog.getTrainsWithStationsRange(startingStn, finalStn);
 					}
 
 					else if(startingStn.size() != 0){
-          	vector<Train> trainsWithStartingStnFound = trainsCatalog.getTrainsWithStation(startingStn);
-            vector<Train>::iterator it = trainsWithStartingStnFound.begin();
-            while(it != trainsWithStartingStnFound.end()){
-            	if(it->getStationPosition(startingStn) != it->getFinalStationPosition()){
-               	trainsFound.push_back(*it);
-            	}
-            	++it;
-            }
+                        vector<Train> trainsWithStartingStnFound = trainsCatalog.getTrainsWithStation(startingStn);
+                        vector<Train>::iterator it = trainsWithStartingStnFound.begin();
+                        while(it != trainsWithStartingStnFound.end()){
+                            if(it->getStationPosition(startingStn) != it->getFinalStationPosition()){
+                                trainsFound.push_back(*it);
+                            }
+                            ++it;
+                        }
 					}
 					else if(finalStn.size() != 0){
 						vector<Train> trainsWithFinalStnFound = trainsCatalog.getTrainsWithStation(finalStn);
-            vector<Train>::iterator it = trainsWithFinalStnFound.begin();
-            while(it != trainsWithFinalStnFound.end()){
-                 if(it->getStationPosition(finalStn) != it->getBeginningStationPosition()){
-                    trainsFound.push_back(*it);
-                 }
-                 ++it;
-            }
+                        vector<Train>::iterator it = trainsWithFinalStnFound.begin();
+                        while(it != trainsWithFinalStnFound.end()){
+                            if(it->getStationPosition(finalStn) != it->getBeginningStationPosition()){
+                                trainsFound.push_back(*it);
+                            }
+                            ++it;
+                        }
 					}
 
 					int trainsFoundNumber = static_cast<int>(trainsFound.size());
@@ -88,7 +88,7 @@ int main(){
 							continue;
 						}
 						else
-              continue;
+                            continue;
 					}
 
 					bool backToSearchMenu = false;
@@ -112,36 +112,36 @@ int main(){
 							break;
 						}
 						else if(isNotNumber(input)){
-              key = getOption("\nNieprawid\210owa dana. OK -> ");
+                            key = getOption("\nNieprawid\210owa dana. OK -> ");
 							continue;
 						}
 						int trainPosition = stoi(input);
 						if((trainPosition<1) || (trainPosition>trainsFoundNumber)){
-              key = getOption("\nNieprawid\210owa liczba. OK -> ");
+                            key = getOption("\nNieprawid\210owa liczba. OK -> ");
 							continue;
 						}
 
-            system("CLS");
-            cout<<"Wyszukiwanie po\210\245cze\344\n=====================\n\n";
-            cout<<"Wybrane po\210\245czenie:\n\n";
-            pair<vector<Station>::iterator, vector<Station>::iterator> range =
+                        system("CLS");
+                        cout<<"Wyszukiwanie po\210\245cze\344\n=====================\n\n";
+                        cout<<"Wybrane po\210\245czenie:\n\n";
+                        pair<vector<Station>::iterator, vector<Station>::iterator> range =
                             trainsFound[trainPosition-1].getStationsRangePositions(startingStn, finalStn);
-            if((startingStn.size() != 0) && (finalStn.size() != 0)){
-               cout<<trainsFound[trainPosition-1].getRouteFromTo(range.first, range.second);
-            }
-            else if(startingStn.size() != 0){
-               cout<<trainsFound[trainPosition-1].getRouteFrom(range.first);
-            }
-            else if(finalStn.size() != 0){
-               cout<<trainsFound[trainPosition-1].getRouteTo(range.second);
-            }
+                        if((startingStn.size() != 0) && (finalStn.size() != 0)){
+                            cout<<trainsFound[trainPosition-1].getRouteFromTo(range.first, range.second);
+                        }
+                        else if(startingStn.size() != 0){
+                            cout<<trainsFound[trainPosition-1].getRouteFrom(range.first);
+                        }
+                        else if(finalStn.size() != 0){
+                            cout<<trainsFound[trainPosition-1].getRouteTo(range.second);
+                        }
 
 						key = getOption("\n\n--------------------\nKontynuacja (nowe po\210\245czenie): \'k\'\nWyj\230cie: \'y\'\n-> ");
-            if(key == 'k'){
-               backToSearchMenu = true;
-            }
+                        if(key == 'k'){
+                            backToSearchMenu = true;
+                        }
 						else if(key == 'y'){
-              backToSearchMenu = true;
+                            backToSearchMenu = true;
 							backToMainMenu = true;
 						}
 					}
@@ -149,33 +149,33 @@ int main(){
 				break;
 			case '2':	//Zestawienie wszystkich polaczen.
 				while(backToMainMenu == false){
-           system("CLS");
-           cout<<"Zestawienie po\210\245cze\344\n====================\n\n";
-           trainsCatalog.show();
-           cout<<"\n\n------------------------------------------------\nSzczeg\242\210owe informacje: wybierz pozycj\251 poci\245gu.\n-> ";
-           string input;
-           getline(cin, input);
-           if(input.size() == 0){
-              break;
-           }
-           else if(isNotNumber(input)){
-              key = getOption("\nNieprawid\210owa dana. OK -> ");
-							continue;
-           }
-					int trainPosition;
-          trainPosition = stoi(input);
-          if((trainPosition<1) || (trainPosition>trainsCatalog.getTrainsNumber())){
-            key = getOption("\nNieprawid\210owa liczba. OK -> ");
+                    system("CLS");
+                    cout<<"Zestawienie po\210\245cze\344\n====================\n\n";
+                    trainsCatalog.show();
+                    cout<<"\n\n------------------------------------------------\nSzczeg\242\210owe informacje: wybierz pozycj\251 poci\245gu.\n-> ";
+                    string input;
+                    getline(cin, input);
+                    if(input.size() == 0){
+                        break;
+                    }
+                    else if(isNotNumber(input)){
+                        key = getOption("\nNieprawid\210owa dana. OK -> ");
 						continue;
-         	}
+                    }
+					int trainPosition;
+                    trainPosition = stoi(input);
+                    if((trainPosition<1) || (trainPosition>trainsCatalog.getTrainsNumber())){
+                        key = getOption("\nNieprawid\210owa liczba. OK -> ");
+						continue;
+                    }
 					system("CLS");
-          cout<<"Zestawienie po\210\245cze\344\n====================\n\n";
+                    cout<<"Zestawienie po\210\245cze\344\n====================\n\n";
 					cout<<"Wybrane po\210\245czenie:\n\n";
 					cout<<trainsCatalog.getTrainPos(trainPosition-1)->getAllRoute();
 					key = getOption("\n\n------------\nWyj\230cie: \'y\'\n-> ");
-          if(key == 'y'){
-             backToMainMenu = true;
-          }
+                    if(key == 'y'){
+                        backToMainMenu = true;
+                    }
 				}
 				break;
 			case '3':	//Edycja
@@ -568,7 +568,7 @@ int main(){
 
 																key = getOption("\n\nKontynuacja (wstaw nast\251pny przystanek): \'k\' -> ");
 																if(key == '\0'){
-                                  backToSelectTrainEditionMenu = true;
+                                                                    backToSelectTrainEditionMenu = true;
 																	backToNextStopAdding = true;
 																	break;
 																}
@@ -577,7 +577,7 @@ int main(){
 																	break;
 																}
 																else
-                                  break;
+                                                                    break;
 															}
 														}
 														else{
@@ -634,7 +634,7 @@ int main(){
 													break;
 												case '3':	//Zmiana godziny odjazdu/przyjazdu z przystanku.
 													while(backToSelectTrainEditionMenu == false){
-                            bool backToNextTimesStationModify = false;
+                                                        bool backToNextTimesStationModify = false;
 														system("CLS");
 														cout<<"Edycja\n======\n\n";
 														cout<<"Operacja zmiany godziny przyjazdu/odjazdu.\n\n";
@@ -692,7 +692,7 @@ int main(){
 
 																key = getOption("\n\nKontynuacja (nast\251pna stacja): \'k\' -> ");
 																if(key == '\0'){
-                                  backToSelectTrainEditionMenu = true;
+                                                                    backToSelectTrainEditionMenu = true;
 																	backToNextTimesStationModify = true;
 																	break;
 																}
@@ -701,7 +701,7 @@ int main(){
 																	break;
 																}
 																else
-                                  break;
+                                                                    break;
 															}
 														}
 														else{
@@ -718,25 +718,25 @@ int main(){
 													}
 													break;
 												default:
-													key = getOption("\nNieprawid\210owa dana. OK -> ");
+													key = getOption("\nNieprawidlowa dana. OK -> ");
 													break;
 											}
 										}
 										break;
 									default:
-										key = getOption("\nNieprawid\210owa dana. OK -> ");
+										key = getOption("\nNieprawidlowa dana. OK -> ");
 										break;
 								}
 							}
 							break;
 						default:
-							key = getOption("\nNieprawid\210owa dana. OK -> ");
+							key = getOption("\nNieprawidlowa dana. OK -> ");
 							break;
 					}
 				}
 				break;
 			default:
-				key = getOption("\nNieprawid\210owa dana. OK -> ");
+				key = getOption("\nNieprawidlowa dana. OK -> ");
 				break;
 		}
 	}
