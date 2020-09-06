@@ -1,7 +1,9 @@
 #include"train.h"
 #include<iostream>
-#include<fstream>  //ofstream(), ifstream()
-#include<cctype>   //isdigit()
+#include<fstream>   //ofstream(), ifstream()
+#include<cctype>    //isdigit()
+#include<algorithm> //sort()
+#include<iomanip>   //setw()
 
 using namespace std;
 
@@ -9,6 +11,12 @@ using namespace std;
 //--------------------------------------------------------------------------------------Station.
 Station::Station(vector<string> stationArguments)
 :	id(stationArguments[0]), name(stationArguments[1]){}
+
+
+int Station::getNumberFromId(){
+    string number = id.substr(1);
+    return stoi(number);
+}
 
 
 string Station::getCard() {
@@ -37,9 +45,15 @@ string Station::getDepartureCard() {
 
 
 string Station::getAllData() {
+	size_t idSize = id.size();
+    string filler(5-idSize, ' ');
+	if(idSize>=5)
+        filler = " ";
+
 	string content;
 	content += arrival+" [";
-	content += id+"] ";
+	content += id+']';
+	content += filler;
 	content += name+' ';
 	content += departure;
 	return content;
@@ -47,18 +61,30 @@ string Station::getAllData() {
 
 
 string Station::getArrivalAllData() {
+	size_t idSize = id.size();
+    string filler(5-idSize, ' ');
+	if(idSize>=5)
+        filler = " ";
+
 	string content;
 	content += arrival+" [";
-	content += id+"] ";
+	content += id+']';
+	content += filler;
 	content += name;
 	return content;
 }
 
 
 string Station::getDepartureAllData() {
+	size_t idSize = id.size();
+    string filler(5-idSize, ' ');
+	if(idSize>=5)
+        filler = " ";
+
 	string content;
 	content += '[';
-	content += id+"] ";
+	content += id+']';
+	content += filler;
 	content += name+' ';
 	content += departure;
 	return content;
@@ -85,6 +111,12 @@ Train::Train(vector<string> trainArguments){
         station.setDeparture(*it);
         stops.push_back(station);
 	}
+}
+
+
+int Train::getNumberFromId(){
+    string number = id.substr(1);
+    return stoi(number);
 }
 
 
@@ -118,18 +150,21 @@ string Train::getCard() {
 	return card;
 }
 
-
 string Train::getAllData() {
+	size_t idSize = id.size();
+	string filler(5-idSize, ' ');
+
 	string content;
 	content += '[';
-	content += id+"] ";
+	content += id+']';
+	content += filler;
 	content += stops[0].getDepartureAllData()+" - ";
 	size_t cnt;
 	for(cnt = 1; cnt<stops.size()-1; ++cnt){
         content += stops[cnt].getAllData()+" - ";
 	}
 	content += stops[cnt].getArrivalAllData();
-	content += "\n\nkursuje: "+days;
+	content += "\n\nokres kursowania: "+days;
 	content += "\nuwagi: "+comments;
 	return content;
 }
@@ -143,7 +178,7 @@ string Train::getAllRoute(){
         content += stops[cnt].getCard()+" - ";
 	}
 	content += stops[cnt].getArrivalCard();
-	content += "\n\nkursuje: "+days;
+	content += "\n\nokres kursowania: "+days;
 	content += "\nuwagi: "+comments;
 	return content;
 }
@@ -157,7 +192,7 @@ string Train::getRouteFromTo(vector<Station>::iterator startPos, vector<Station>
 		++it;
 	}
 	content += it->getArrivalCard();
-	content += "\n\nkursuje: "+days;
+	content += "\n\nokres kursowania: "+days;
 	content += "\nuwagi: "+comments;
 	return content;
 }
@@ -172,7 +207,7 @@ string Train::getRouteFrom(vector<Station>::iterator startPos) {
 	}
 
 	content += it->getArrivalCard();
-	content += "\n\nkursuje: "+days;
+	content += "\n\nokres kursowania: "+days;
 	content += "\nuwagi: "+comments;
 	return content;
 }
@@ -186,7 +221,7 @@ string Train::getRouteTo(vector<Station>::iterator endPos) {
 		++it;
 	}
 	content += it->getArrivalCard();
-	content += "\n\nkursuje: "+days;
+	content += "\n\nokres kursowania: "+days;
 	content += "\nuwagi: "+comments;
 	return content;
 }
@@ -381,6 +416,7 @@ bool StationsCatalog::addStation(string nameStn){
     string idStn = getNewStationId();
     Station newStation({idStn, nameStn});
     stations.push_back(newStation);
+    sortStations();
     return true;
 }
 
@@ -433,9 +469,25 @@ bool StationsCatalog::saveToFile(){
 }
 
 
+void StationsCatalog::sortStations(){
+    sort(stations.begin(), stations.end(), [](Station a, Station b){return a.getNumberFromId()<b.getNumberFromId();});
+}
+
+
 void StationsCatalog::show() {
 	vector<Station>::iterator it = stations.begin();
 	while(it != stations.end()){
+		cout<<it->getAllData()<<'\n';
+		++it;
+	}
+}
+
+
+void StationsCatalog::showNameSorted(){
+    vector<Station> stationsNameSorted = stations;
+    sort(stationsNameSorted.begin(), stationsNameSorted.end(), [](Station a, Station b){return a.getName()<b.getName();});
+	vector<Station>::iterator it = stationsNameSorted.begin();
+	while(it != stationsNameSorted.end()){
 		cout<<it->getAllData()<<'\n';
 		++it;
 	}
@@ -532,6 +584,7 @@ bool TrainsCatalog::deletingTrain(string idTrain){
 
 void TrainsCatalog::addTrain(Train train){
     trains.push_back(train);
+    sortTrains();
 }
 
 
@@ -586,28 +639,37 @@ bool TrainsCatalog::saveToFile(){
 }
 
 
+void TrainsCatalog::sortTrains(){
+    sort(trains.begin(), trains.end(), [](Train a, Train b){return a.getNumberFromId()<b.getNumberFromId();});
+}
+
+
 void TrainsCatalog::show() {
 	vector<Train>::iterator it = trains.begin();
+	string positionString;;
 	int cnt{};
 	while(it != trains.end()){
-		cout<<++cnt<<"). "<<it->getCard()<<'\n';
-		++it;
+        positionString = to_string(++cnt)+").";
+        cout<<left<<setw(5)<<positionString<<right<<it->getCard()<<'\n';
+        ++it;
 	}
 }
 
 
 void TrainsCatalog::showAllData(){
 	vector<Train>::iterator it = trains.begin();
+	string idString;
 	while(it != trains.end()){
-		cout<<'['<<it->getId()<<"]  "<<it->getCard()<<'\n';
-		++it;
+        idString = '['+it->getId()+']';
+        cout<<left<<setw(7)<<idString<<right<<it->getCard()<<'\n';
+        ++it;
 	}
 }
 
 
 //--------------------------------------------------------------------------------------global functions.
 void showTitle(){
-    cout<<"TRAINS v. 1.0\n=============\n\n";
+    cout<<"TRAINS v. 1.2\n=============\n\n";
 }
 
 

@@ -2,7 +2,7 @@
 #define TRAINS_H
 
 #include<vector>
-#include<string>	//string, size(), stoi(), to_string()
+#include<string>	//string, size(), stoi(), to_string(), substr()
 #include<utility>	//pair<>
 
 using namespace std;
@@ -13,15 +13,16 @@ public:
 	Station() = default;                        //Konstruktor domyslny tworzony jest tu automatycznie (nie musze go juz definiowac).
 	Station(vector<string> stationArguments);   //Konstruktor parametryczny.
 	string getId() {return id;}
+	int getNumberFromId();
 	string getName() {return name;}
 	string getArrival()  {return arrival;}
 	string getDeparture() {return departure;}
 	string getCard();                           //Zwraca wizytowke stacji - jej skrocone dane.
-    	string getArrivalCard();                    //Pomija godzine przyjazdu do stacji (dla stacji poczatkowych).
-    	string getDepartureCard();                  //Pomija godzine odjazdu ze stacji (dla stacji koncowych).
+    string getArrivalCard();                    //Pomija godzine przyjazdu do stacji (dla stacji poczatkowych).
+    string getDepartureCard();                  //Pomija godzine odjazdu ze stacji (dla stacji koncowych).
 	string getAllData();                        //Zwraca pelne dane stacji (tzn. wraz z jej identyfikatorem).
-    	string getArrivalAllData();                 //Dodatkowo zwraca identyfikator stacji (dla stacji poczatkowych).
-    	string getDepartureAllData();               //Dodatkowo zwraca identyfikator stacji (dla stacji koncowych).
+    string getArrivalAllData();                 //Dodatkowo zwraca identyfikator stacji (dla stacji poczatkowych).
+    string getDepartureAllData();               //Dodatkowo zwraca identyfikator stacji (dla stacji koncowych).
 	void setId(string idNumber) {id = idNumber;}
 	void setName(string nameStation) {name = nameStation;}
 	void setArrival(string arriv) {arrival = arriv;}
@@ -40,6 +41,7 @@ public:
 	Train() = default;                          //Konstruktor domyslny tworzony jest tu automatycznie (nie musze go juz definiowac).
 	Train(vector<string> trainArguments);       //Konstruktor parametryczny.
 	string getId() {return id;}
+	int getNumberFromId();
 	string getDays() {return days;}
 	string getComments() {return comments;}
 	vector<Station>& getStops() {return stops;}
@@ -84,7 +86,9 @@ public:
 	bool deletingStation(string idStation);                            //Usuwa z katalogu stacji stacje o podanym identyfikatorze i zwraca informacje czy sie to udalo.
 	bool fillFromFile();                                               //Wczytuje z pliku dane do katalogu stacji i zwraca informacje czy sie to udalo.
 	bool saveToFile();                                                 //Zapisuje do pliku dane z katalogu stacji i zwraca informacje czy sie to udalo.
-	void show();                                                       //Wypisuje zawartosc katalogu stacji
+	void sortStations();                                               //Sortuje zawartosc katalogu stacji.
+	void show();                                                       //Wypisuje zawartosc katalogu stacji.
+	void showNameSorted();                                             //Wypisuje posortowana zawartosc katalogu stacji.
 private:
 	vector<Station> stations;
 };
@@ -103,6 +107,7 @@ public:
 	void addTrain(Train tr);;                                   //Dodaje do katalogu pociagow podany pociag i zwraca informacje czy sie to udalo.
 	bool fillFromFile();                                        //Wczytuje z pliku dane do katalogu pociagow i zwraca informacje czy sie to udalo.
 	bool saveToFile();                                          //Zapisuje do pliku dane z katalogu pociagow i zwraca informacje czy sie to udalo.
+	void sortTrains();                                          //Sortuje zawartosc katalogu pociagow.
 	void show();                                                //Wypisuje zawartosc katalogu pociagow.
 	void showAllData();                                         //Wypisuje zawartosc katalogu pociagow (pelne dane - wraz z identyfikatorami pociagow).
 private:

@@ -1,14 +1,38 @@
 p1
--
-klimatyzacja
+9 do 30 lipiec 2020
+autobus szynowy, rowery.
 s1
 Pozna‰ Gà¢wny
 #
 09:06
+s38
+Pozna‰ Wola
+09:14
+09:15
+s39
+Kiekrz
+09:23
+09:23
 s3
 Rokietnica
 09:27
 09:28
+s40
+Pami•tkowo
+09:33
+09:33
+s41
+Babor¢wko
+09:40
+09:41
+s42
+Szamotuày
+09:46
+09:47
+s43
+P©ckowo
+09:57
+09:57
 s6
 Wronki
 10:06
@@ -21,9 +45,93 @@ s37
 Miaày
 10:22
 10:23
+s44
+Drawski Màyn
+10:30
+10:31
 s30
 Krzyæ
 10:36
+10:43
+s82
+G¢rki Noteckie
+11:17
+11:18
+s81
+Santok
+11:23
+11:24
+s80
+Gorz¢w Wielkopolski
+11:37
+#
+*
+p2
+9 do 30 lipiec 2020.
+autobus szynowy, rowery.
+s80
+Gorz¢w Wielkopolski
+#
+16:39
+s81
+Santok
+16:51
+16:51
+s82
+G¢rki Noteckie
+16:57
+16:57
+s30
+Krzyæ
+17:31
+17:38
+s44
+Drawski Màyn
+17:44
+17:44
+s37
+Miaày
+17:50
+17:51
+s29
+Mokrz
+17:58
+17:59
+s6
+Wronki
+18:08
+18:08
+s43
+P©ckowo
+18:15
+18:16
+s42
+Szamotuày
+18:26
+18:26
+s41
+Babor¢wko
+18:31
+18:32
+s40
+Pami•tkowo
+18:36
+18:37
+s31
+Zb•szynek
+4
+4
+s39
+Kiekrz
+18:52
+18:52
+s38
+Pozna‰ Wola
+18:59
+18:59
+s1
+Pozna‰ Gà¢wny
+19:08
 #
 *
 p3
@@ -33,6 +141,10 @@ s1
 Pozna‰ Gà¢wny
 #
 14:18
+s79
+Pozna‰ G¢rczyn
+14:22
+14:23
 s16
 Pal©dzie
 14:31
@@ -55,31 +167,35 @@ Zb•szy‰
 #
 *
 p4
-6, 7
-klimatyzacja
-s14
-Zb•szy‰
-#
-13:54
-s20
-Opalenica
-14:22
-14:23
-s19
-Buk
-14:32
-14:33
-s18
-Dopiewo
-14:42
-14:43
-s16
-Pal©dzie
-14:47
-14:48
+9 - 31 lipiec 2020
+klimatyzacja, rowery.
 s1
 Pozna‰ Gà¢wny
-15:01
+#
+06:45
+s83
+Pozna‰ Garbary
+06:48
+06:49
+s84
+Pozna‰ Wsch¢d
+06:52
+06:53
+s85
+Kobylnica
+06:59
+07:00
+s86
+Promno
+07:07
+07:08
+s87
+Pobiedziska Letnisko
+07:09
+07:10
+s88
+Pobiedziska
+07:12
 #
 *
 p5
@@ -110,7 +226,7 @@ Kutno
 20:04
 20:05
 s9
-Warszawa
+Warszawa Centralna
 21:33
 #
 *
@@ -151,23 +267,19 @@ Krak¢w
 #
 *
 p7
-1, 3, 7
-IC, rezerwacja
-s9
-Warszawa
+11 lipiec do 29 sierpie‰ 2020.
+EIC Premium.
+s28
+Krak¢w
 #
-15:11
-s32
-Kutno
-16:47
-16:51
-s33
-Konin
-17:48
-17:51
-s1
-Pozna‰ Gà¢wny
-18:56
+15:57
+s89
+Warszawa Zachodnia
+18:09
+18:10
+s9
+Warszawa Centralna
+18:14
 #
 *
 p8
@@ -197,6 +309,10 @@ s16
 Pal©dzie
 12:33
 12:34
+s79
+Pozna‰ G¢rczyn
+12:42
+12:42
 s1
 Pozna‰ Gà¢wny
 12:47
@@ -229,6 +345,10 @@ s16
 Pal©dzie
 12:54
 12:54
+s79
+Pozna‰ G¢rczyn
+13:03
+13:04
 s1
 Pozna‰ Gà¢wny
 13:08
@@ -241,6 +361,10 @@ s1
 Pozna‰ Gà¢wny
 #
 23:13
+s79
+Pozna‰ G¢rczyn
+23:17
+23:18
 s16
 Pal©dzie
 23:25
@@ -266,23 +390,211 @@ Zb•szynek
 00:23
 #
 *
-p2
-9 lipiec - 29 sierpie‰
-IC; wagon gastronomiczny; rezerwacja obowi•zkowa.
+p11
+6
+przew¢z rower¢w, wifi, tylko 2 kl., klimatyzacja
 s1
 Pozna‰ Gà¢wny
 #
-12:04
-s35
-Oborniki Wielkopolskie
+9:51
+s38
+Pozna‰ Wola
+9:59
+10:00
+s39
+Kiekrz
+10:08
+10:08
+s3
+Rokietnica
+10:12
+10:12
+s40
+Pami•tkowo
+10:16
+10:17
+s41
+Babor¢wko
+10:23
+10:24
+s42
+Szamotuày
+10:29
+10:41
+s43
+P©ckowo
+10:50
+10:51
+s6
+Wronki
+10:58
+10:59
+s29
+Mokrz
+11:08
+11:08
+s37
+Miaày
+11:15
+11:16
+s44
+Drawski Màyn
+11:23
+11:24
+s30
+Krzyæ
+11:29
+11:47
+s45
+Drawiny
+11:52
+11:52
+s46
+Podlesiec
+11:57
+11:58
+s47
+Mierz©cin Strzelecki
+12:01
+12:02
+s27
+Dobiegniew
+12:06
+12:06
+s17
+Bierzwnik
+12:13
+12:13
+s48
+R©busz
+12:17
+12:17
+s49
+Sàonice
+12:22
+12:23
+s50
+Stary Klukom
 12:29
-12:31
-s36
-Chodzieæ
-13:05
-13:06
-s22
-Piàa
-13:23
+12:29
+s26
+Choszczno
+12:35
+12:36
+s51
+Ziemomyòl
+12:41
+12:41
+s52
+Dolice
+12:46
+12:46
+s53
+Morzyca
+12:51
+12:52
+s54
+Kolin
+12:57
+12:57
+s55
+Witkowo Pyrzyckie
+13:02
+13:02
+s56
+Stargard
+13:08
+13:20
+s57
+Grz©dzice
+13:24
+13:25
+s58
+Miedwiecko
+13:27
+13:28
+s59
+Reptowo
+13:33
+13:33
+s60
+Szczecin Zdunowo
+13:40
+13:41
+s61
+Szczecin D•bie
+13:48
+13:49
+s62
+Szczecin Zdroje
+13:52
+13:53
+s63
+Szczecin Port Centralny
+14:01
+14:01
+s64
+Szczecin Gà¢wny
+14:05
+14:30
+s65
+Szczecin Zaàom
+14:37
+14:38
+s66
+Kliniska
+14:41
+14:42
+s67
+Goleni¢w
+14:50
+14:51
+s68
+Biaàu‰
+14:55
+14:55
+s69
+ùo´nica
+15:00
+15:01
+s70
+Rokita
+15:06
+15:07
+s71
+Wysoka Kamie‰ska
+15:11
+15:12
+s72
+Troszyn
+15:18
+15:18
+s73
+Wolin
+15:25
+15:25
+s74
+ùadzin
+15:31
+15:32
+s75
+Warnowo
+15:34
+15:35
+s76
+Mi©dzyzdroje
+15:42
+15:43
+s77
+ówinoujòcie Przyt¢r
+15:50
+15:55
+s78
+ówinoujòcie Warsz¢w
+15:54
+15:55
+s34
+ówinoujòcie
+15:57
 #
 *
